@@ -14,12 +14,11 @@ return new class extends Migration
         Schema::create('job_models', function (Blueprint $table) {
             $table->id();
             $table->string('job_name');
-            $table->string('company');
-            $table->string('area');
+            $table->longText('company');
+            $table->longText('area');
             $table->string('post_code');
             $table->string('city');
-            $table->string('detail');
-            $table->string('skills');
+            $table->longText('detail');
             $table->integer('salary');
             $table->integer('user_id');
             $table->timestamps();
@@ -31,8 +30,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        // Schema::dropIfExists('job_models');
-        Schema::dropColumns('job_models',['job_name','company','area',
-        'post_code','city','detail','skills','salary','user_id']);
+         Schema::dropIfExists('job_models');
+        
     }
 };
