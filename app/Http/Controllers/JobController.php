@@ -12,7 +12,7 @@ class JobController extends Controller
      */
     public function index()
     {
-        return inertia('Job/Index',
+        return inertia('Jobs/Index',
         [
             'job'=>JobModel::all()
         ]);
