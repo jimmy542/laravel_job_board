@@ -4,6 +4,9 @@
       <div>
         <label>Job</label>
         <input v-model="form.job_name" type="text" />
+        <div v-if="form.errors.job_name">
+          {{form.errors.job_name}}
+        </div>
       </div>
 
       <div>
@@ -47,10 +50,7 @@
 
 <script setup>
 import { useForm } from '@inertiajs/vue3'
-import MainLayout from '../../Layouts/MainLayout.vue';
-export default {
-  layout: MainLayout
-}
+
 const form = useForm({
   job_name: null,
   company: null,
