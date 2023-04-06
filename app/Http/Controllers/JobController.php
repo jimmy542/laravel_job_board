@@ -23,7 +23,10 @@ class JobController extends Controller
      */
     public function create()
     {
-        //
+        return inertia('Jobs/Create',
+        [
+            
+        ]);
     }
 
     /**
@@ -31,7 +34,9 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        JobModel::create($request->all());
+        return redirect()->route('job.index')
+        ->with('success','job save succeed');
     }
 
     /**
@@ -39,7 +44,7 @@ class JobController extends Controller
      */
     public function show(string $id)
     {
-        return inertia('Job/Show',
+        return inertia('Jobs/Show',
         [
             'job'=>JobModel::find($id)
         ]);

@@ -2,6 +2,7 @@
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\JobController;
 use Inertia\Inertia;
 
 /*
@@ -23,6 +24,8 @@ Route::get('/', function () {
         'phpVersion' => PHP_VERSION,
     ]);
 });
+
+Route::resource('job', JobController::class)->only(['index', 'show','create','store']);
 
 Route::middleware([
     'auth:sanctum',
