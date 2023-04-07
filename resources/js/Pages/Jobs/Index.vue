@@ -10,6 +10,13 @@
       Edit
     </Link> 
     </div>
+
+    <div>
+      <Link :href="`/job/${item.id}`" method="DELETE">
+      Delete
+    </Link> 
+    </div>
+
   </div>
 </template>
 

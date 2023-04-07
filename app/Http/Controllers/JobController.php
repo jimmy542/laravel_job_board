@@ -39,7 +39,7 @@ class JobController extends Controller
             ...$request->validate([
                 'job_name' => 'required|min:0|max:100',
                 'company' => 'required|min:0|max:100',
-                'area' => 'required|min:15|max:1500',
+                'area' => 'required|min:3|max:1500',
                 'post_code' => 'required',
                 'city' => 'required',
                 'detail' => 'required|min:1|max:1000',
@@ -48,7 +48,7 @@ class JobController extends Controller
             ])
         ]);
         return redirect()->route('job.index')
-        ->with('message','job save succeed');
+        ->with('message','job save success');
     }
 
     /**
@@ -82,7 +82,7 @@ class JobController extends Controller
             $request->validate([
                 'job_name' => 'required|min:0|max:100',
                 'company' => 'required|min:0|max:100',
-                'area' => 'required|min:15|max:1500',
+                'area' => 'required|min:3|max:1500',
                 'post_code' => 'required',
                 'city' => 'required',
                 'detail' => 'required|min:1|max:1000',
@@ -96,8 +96,9 @@ class JobController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Jobmodel $job)
     {
-        //
+        $job->delete();
+        return redirect()->back()->with('message','delete record success');
     }
 }
