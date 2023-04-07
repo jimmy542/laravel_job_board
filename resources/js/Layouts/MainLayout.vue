@@ -1,4 +1,5 @@
 <template>
+  <Link href="/">Home</Link>&nbsp;
   <Link href="/job">Main Page Job</Link>&nbsp;
   <Link href="/job/create">Job Create</Link>
   <div v-if="flashSuccess" class="success">

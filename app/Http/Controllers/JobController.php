@@ -67,15 +67,30 @@ class JobController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return inertia('Jobs/Edit',
+        [
+            'job'=>JobModel::find($id)
+        ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Jobmodel $job)
     {
-        //
+        $job->update(
+            $request->validate([
+                'job_name' => 'required|min:0|max:100',
+                'company' => 'required|min:0|max:100',
+                'area' => 'required|min:15|max:1500',
+                'post_code' => 'required',
+                'city' => 'required',
+                'detail' => 'required|min:1|max:1000',
+                'skills' => 'required',
+                'salary' => 'required|integer|min:1|max:20000000',
+            ]));
+        return redirect()->route('job.index')
+        ->with('message','job update succeed');
     }
 
     /**

@@ -25,7 +25,7 @@ Route::get('/', function () {
     ]);
 });
 
-Route::resource('job', JobController::class)->only(['index', 'show','create','store']);
+Route::resource('job', JobController::class)->except(['destroy']);
 
 Route::middleware([
     'auth:sanctum',
