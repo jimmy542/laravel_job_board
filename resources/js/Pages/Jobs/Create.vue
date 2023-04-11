@@ -83,7 +83,7 @@ const form = useForm({
   salary:0,
   user_id:0,
 })
-const create = () => form.post('/job',form)
+const create = () => form.post(route('job.store'),form)
 </script>
 
 <style scoped>

@@ -86,7 +86,7 @@ const form = useForm({
   salary:props.job.salary,
   user_id:0,
 })
-const update = () => form.put(`/job/${props.job.id}`)
+const update = () => form.put(route('job.update',{job:props.job.id}))
 </script>
 
 <style scoped>
