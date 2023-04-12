@@ -10,20 +10,20 @@ import MainLayout from '../js/Layouts/MainLayout.vue'
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
 
 createInertiaApp({
-    progress: {
-        // The delay after which the progress bar will appear
-        // during navigation, in milliseconds.
-        delay: 250,
+  progress: {
+    // The delay after which the progress bar will appear
+    // during navigation, in milliseconds.
+    delay: 250,
+
+    // The color of the progress bar.
+    color: '#8b5cf6',
     
-        // The color of the progress bar.
-        color: '#86efac',
-    
-        // Whether to include the default NProgress styles.
-        includeCSS: true,
-    
-        // Whether the NProgress spinner will be shown.
-        showSpinner: true,
-      },
+    // Whether to include the default NProgress styles.
+    includeCSS: true,
+
+    // Whether the NProgress spinner will be shown.
+    showSpinner: true,
+  },
     title: (title) => `${title} - ${appName}`,
     resolve: async (name) => {
         const pages = import.meta.glob('./Pages/**/*.vue')
@@ -36,9 +36,6 @@ createInertiaApp({
             .use(plugin)
             .use(ZiggyVue, Ziggy)
             .mount(el);
-    },
-    progress: {
-        color: '#4B5563',
     },
 })
 
