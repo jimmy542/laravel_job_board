@@ -56,13 +56,13 @@
 
       <div class="col-span-4">
         <label class="label">salary</label>
-        <input v-model.number="form.salary" type="number" class="inout"/>
+        <input v-model.number="form.salary" type="number" class="input"/>
            <div v-if="form.errors.salary">
           {{form.errors.salary}}
         </div>
       </div>
 
-      <div>
+      <div class="col-span-6">
         <button type="submit" class="btn-primary">Save</button>
       </div>
     </div>

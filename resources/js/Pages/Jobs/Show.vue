@@ -17,6 +17,18 @@
                 Save
             </template>
             Apply Job
+            <div class="mt-2 text-gray-500">
+            <div class="flex justify-between">
+              <div>
+                {{ "Easy apply" }}
+              </div>
+            </div>
+            <div class="flex justify-between">
+              <div>
+                {{ "full description" }}
+              </div>
+            </div>
+            </div>
         </Box>
         </div>
     </div>

@@ -12,7 +12,7 @@
       <div class="col-span-2">
         <label class="label">Company</label>
         <input v-model="form.company" type="text" class="input"/>
-        <div v-if="form.errors.company">
+        <div v-if="form.errors.company" class="input-error">
           {{form.errors.company}}
         </div>
       </div>
@@ -20,7 +20,7 @@
       <div class="col-span-2">
         <label class="label">Area</label>
         <input v-model="form.area" type="text" class="input"/>
-        <div v-if="form.errors.area">
+        <div v-if="form.errors.area" class="input-error">
           {{form.errors.area}}
         </div>
       </div>
@@ -28,36 +28,36 @@
       <div class="col-span-2">
         <label class="label">Postcode</label>
         <input v-model="form.post_code" type="text" class="input"/>
-         <div v-if="form.errors.post_code">
+         <div v-if="form.errors.post_code" class="input-error">
           {{form.errors.post_code}}
         </div>
       </div>
       <div class="col-span-4">
         <label class="label">city</label>
         <input v-model="form.city" type="text" class="input"/>
-        <div v-if="form.errors.city">
+        <div v-if="form.errors.city" class="input-error">
           {{form.errors.city}}
         </div>
       </div>
         <div class="col-span-6">
         <label class="label">Details</label>
         <input v-model="form.detail" type="text" class="input"/>
-        <div v-if="form.errors.detail">
+        <div v-if="form.errors.detail" class="input-error">
           {{form.errors.detail}}
         </div>
       </div>
-      <div class="cal-span-6">
+      <div class="col-span-6">
         <label class="label">skills</label>
         <input v-model="form.skills" type="text" class="input"/>
-        <div v-if="form.errors.skills">
-          {{form.errors.skills}}
+        <div v-if="form.errors.skills" class="input-error">
+          {{form.errors.skills}}salary
         </div>
       </div>
 
-      <div class="cal-span-6">
+      <div class="col-span-6">
         <label class="label">salary</label>
         <input v-model.number="form.salary" type="number" class="input"/>
-           <div v-if="form.errors.salary">
+           <div v-if="form.errors.salary" class="input-error">
           {{form.errors.salary}}
         </div>
       </div>
