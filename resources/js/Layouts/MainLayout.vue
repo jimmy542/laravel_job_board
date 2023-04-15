@@ -7,9 +7,18 @@
         </div>
         <div class="text-xl text-indigo-600 dark:text-indigo-300 font-bold text-center">
           <Link :href="route('job.index')">Jobs</Link>
-        </div>
-        <div>
+        </div> 
+        <div v-if="$page.props.user" class="flex items-center gap-4">
           <Link :href="route('job.create')" class="btn-primary">+ New Listing</Link>
+          <div class="text-sm text-gray-500">{{ $page.props.user.name }}</div>
+          
+          <div>
+            <Link :href="route('logout')" method="delete" as="button">Logout</Link>
+          </div>
+        </div>
+        <div v-else class="flex items-center gap-2">
+          <Link :href="route('user.create')">Register</Link>
+          <Link :href="route('login')">Sign-In</Link>
         </div>
       </nav>
     </div>
