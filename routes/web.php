@@ -27,7 +27,13 @@ Route::get('/', function () {
     ]);
 });
 
-Route::resource('job', JobController::class);
+
+Route::resource('job', JobController::class)
+  ->only(['create', 'store', 'edit', 'update', 'destroy'])
+  ->middleware('auth');
+Route::resource('job', JobController::class)
+  ->except(['create', 'store', 'edit', 'update', 'destroy']);
+
 Route::resource('user', UserAccountController::class)
   ->only(['create','store']);
 
