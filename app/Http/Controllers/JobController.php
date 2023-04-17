@@ -34,9 +34,8 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-        JobModel::create([
-            ...$request->all(),
-            ...$request->validate([
+            $request->user()->job()->create(
+                $request->validate([
                 'job_name' => 'required|min:0|max:100',
                 'company' => 'required|min:0|max:100',
                 'area' => 'required|min:3|max:1500',
@@ -46,7 +45,7 @@ class JobController extends Controller
                 'skills' => 'required',
                 'salary' => 'required|integer|min:1|max:20000000',
             ])
-        ]);
+        );
         return redirect()->route('job.index')
         ->with('message','job save success');
     }

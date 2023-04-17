@@ -11,6 +11,8 @@ use Laravel\Jetstream\HasProfilePhoto;
 use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 
 class User extends Authenticatable
 {
@@ -61,11 +63,18 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    protected function password(): Attribute
+    // protected function password(): Attribute
+    // {
+    //     return Attribute::make(
+    //         get: fn ($value) => $value,
+    //         set: fn ($value) => Hash::make($value),
+    //     );
+    // }
+    public function job_model(): HasMany
     {
-        return Attribute::make(
-            get: fn ($value) => $value,
-            set: fn ($value) => Hash::make($value),
+        return $this->hasMany(
+            \App\Models\JobModel::class,
+            'by_user_id'
         );
     }
 }
