@@ -11,12 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-    
-        Schema::table('job_models', function (Blueprint $table) {
-            $table->foreignIdFor(
-                \App\Models\User::class,
-                'by_user_id'
-            )->constrained('users');
+        Schema::table('users', function (Blueprint $table) {
+            $table->boolean('is_admin')->default(false);
         });
     }
 
@@ -25,7 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('job_models', function (Blueprint $table) {
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('is_admin');
         });
     }
 };

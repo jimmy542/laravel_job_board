@@ -16,10 +16,11 @@ class JobModelFactory extends Factory
      */
     public function definition(): array
     {
+        
         return [
             
-        'job_name'=>fake()->city(),
-        'company'=>fake()->name(),
+        'job_name'=>fake()->jobTitle(),
+        'company'=>fake()->company(),
         'area'=>fake()->city(),
         'post_code'=>fake()->postcode(),
         'city'=>fake()->city(),

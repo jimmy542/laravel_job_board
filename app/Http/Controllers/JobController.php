@@ -6,15 +6,22 @@ use Illuminate\Http\Request;
 use App\Models\JobModel;
 
 class JobController extends Controller
-{
+{   
+  
+    public function __construct()
+    {
+        $this->authorizeResource(JobModel::class, 'job');
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
+
         return inertia('Jobs/Index',
         [
-            'job'=>JobModel::all()
+            'job'=>JobModel::orderByDesc('created_at')
+            ->paginate(12)
         ]);
     }
 
@@ -34,7 +41,7 @@ class JobController extends Controller
      */
     public function store(Request $request)
     {
-            $request->user()->job()->create(
+            $request->user()->job_model()->create(
                 $request->validate([
                 'job_name' => 'required|min:0|max:100',
                 'company' => 'required|min:0|max:100',

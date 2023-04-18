@@ -6,7 +6,7 @@
           <Link :href="route('job.index')">Job Listings</Link>
         </div>
         <div class="text-xl text-indigo-600 dark:text-indigo-300 font-bold text-center">
-          <Link :href="route('job.index')">Jobs</Link>
+          <Link :href="route('job.index')">Over Seas Bees</Link>
         </div> 
         <div v-if="$page.props.user" class="flex items-center gap-4">
           <Link :href="route('job.create')" class="btn-primary">+ New Listing</Link>

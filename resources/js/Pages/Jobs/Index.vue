@@ -1,6 +1,6 @@
 <template>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
-  <Box v-for="item in job" :key="item.id">
+  <Box v-for="item in job.data" :key="item.id">
     <div>
     <Link :href="route('job.show',{job:item.id})">
        <JobSpace :job="item" class="text-gray-500" />
@@ -19,9 +19,13 @@
       Delete
     </Link> 
     </div>
-
+    
   </Box>
-    </div>
+  <div v-if="job.data.length" class="w-full flex justify-center mt-8 mb-8">
+    <Pagination :links="job.links" />
+  </div>
+</div>
+    
 </template>
 
 <script setup>
@@ -30,8 +34,9 @@
     import JobListing from '../../Components/UI/JobListing.vue'
     import JobSpace from '../../Components/UI/JobSpace.vue'
     import Salary from '../../Components/UI/Salary.vue'
+    import Pagination from '../../Components/UI/Pagination.vue'
     defineProps({
-        job:Array,
+        job:Object,
     })
 
     
