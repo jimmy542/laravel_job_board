@@ -2,11 +2,8 @@
     <header class="border-b border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 w-full">
     <div class="container mx-auto">
       <nav class="p-4 flex items-center justify-between">
-        <div class="text-lg font-medium">
-          <Link :href="route('job.index')">Job Listings</Link>
-        </div>
         <div class="text-xl text-indigo-600 dark:text-indigo-300 font-bold text-center">
-          <Link :href="route('job.index')">Over Seas Bees</Link>
+          <Link :href="route('job.index')">TechJob Today</Link>
         </div> 
         <div v-if="$page.props.user" class="flex items-center gap-4">
           <Link :href="route('job.create')" class="btn-primary">+ New Listing</Link>

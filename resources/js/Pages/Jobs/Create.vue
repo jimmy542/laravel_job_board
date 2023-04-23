@@ -81,7 +81,7 @@ const form = useForm({
   detail:null,
   skills:null,
   salary:0,
-  user_id:0,
+  by_user_id:1,
 })
 const create = () => form.post(route('job.store'),form)
 </script>

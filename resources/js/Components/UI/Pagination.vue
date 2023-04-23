@@ -1,5 +1,5 @@
 <template>
-  <div class="flex gap-1">
+  <div class="flex gap-1 items-center">
     <Link
       v-for="(link, index) in links" 
       :key="index" class="py-2 px-4 rounded-md" 

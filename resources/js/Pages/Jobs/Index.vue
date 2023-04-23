@@ -21,10 +21,11 @@
     </div>
     
   </Box>
+
+</div>
   <div v-if="job.data.length" class="w-full flex justify-center mt-8 mb-8">
     <Pagination :links="job.links" />
   </div>
-</div>
     
 </template>
 
