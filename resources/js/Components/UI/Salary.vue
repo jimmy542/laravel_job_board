@@ -10,7 +10,7 @@ const props = defineProps({
 const formattedSalary = computed(
   () => Number(props.salary).toLocaleString('en-US', {
     style: 'currency',
-    currency: 'USD',
+    currency: 'GBP',
     maximumFractionDigits: 0,
   }),
 )

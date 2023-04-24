@@ -1,4 +1,5 @@
 <template>
+<Filters :filters="filters" />
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
   <Box v-for="item in job.data" :key="item.id">
     <div>
@@ -36,8 +37,10 @@
     import JobSpace from '../../Components/UI/JobSpace.vue'
     import Salary from '../../Components/UI/Salary.vue'
     import Pagination from '../../Components/UI/Pagination.vue'
+    import Filters from './Fliter.vue'
     defineProps({
         job:Object,
+        filters: Object,
     })
 
     

@@ -8,6 +8,7 @@ use App\Models\JobModel;
 class JobController extends Controller
 {   
   
+
     public function __construct()
     {
         // $this->authorizeResource(JobModel::class, 'job');
@@ -16,13 +17,34 @@ class JobController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
+        $query = JobModel::orderByDesc('created_at');
+        $filters = $request->only([
+            'salary', 'job_name','area','post_code','city','skills',
+        ]);
+
+        if ($filters['salary'] ?? false) {
+            $query->where('salary', '>=', $filters['salary']);
+        }
+
+        if ($filters['job_name'] ?? false) {
+            $query->where('job_name', '=', $filters['job_name']);
+        }
+
+        if ($filters['area'] ?? false) {
+            $query->where('area', $filters['area']);
+        }
+
+        if ($filters['post_code'] ?? false) {
+            $query->where('post_code', $filters['post_code']);
+        }
 
         return inertia('Jobs/Index',
-        [
-            'job'=>JobModel::orderByDesc('created_at')
-            ->paginate(12)
+        [   
+            'filters' => $filters,
+            'job'=>$query->paginate(12)
+            ->withQueryString()
         ]);
     }
 
