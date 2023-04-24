@@ -1,9 +1,8 @@
 <template>
   <form @submit.prevent="filter">
-    <div class="mb-8 mt-4 flex flex-wrap gap-2">
+    <div class="mb-8 mt-4 flex flex-wrap gap-4">
       <div class="flex flex-nowrap items-center gap-4">
         <div>
-          What ?
           <input
           v-model.trim="filterForm.job_name"
           type="text" placeholder="Job Title" 
@@ -12,7 +11,7 @@
         </div>
 
         <div>
-          Where ?
+
           <input
           v-model.trim="filterForm.city"
           type="text" placeholder="City" 
@@ -23,19 +22,23 @@
       </div>
 
       <div class="flex flex-nowrap items-center gap-4">
-        <select v-model="filterForm.salary" class="input-filter-r w-40 rounded-md">
-          <option :value="null">salary</option>
+        <select @change="filter()" v-model="filterForm.salary" class="input-filter-r w-40 rounded-md">
+          <option :value="null">Salary</option>
           <option v-for="n in 5" :key="n" :value="n * 10000">{{ n * 10000 }}</option>
-          <option :value="60000">60000+</option>
+          <option :value="60000">60000</option>
         </select>
-        <select v-model="filterForm.salary" class="input-filter-r w-40 rounded-md">
-          <option :value="null">distance</option>
+        <!-- <select v-model="filterForm.salary" class="input-filter-r w-40 rounded-md">
+          <option :value="null">Distance</option>
           <option v-for="n in 5" :key="n" :value="n * 5">{{ n * 5 }}</option>
           <option :value="30">30+</option>
-        </select>
+        </select> -->
       </div>
-      <button type="submit" class="btn-normal">Filter</button>
-      <button type="reset" @click="clear">Clear</button>
+      <div class="flex flex-nowrap items-center gap-4">
+        <button type="submit" class="btn-normal">Filter</button>
+      </div>
+      <div class="flex flex-nowrap items-center gap-4">
+        <button type="reset" @click="clear">Clear</button>
+      </div>
     </div>
   </form>
 </template>

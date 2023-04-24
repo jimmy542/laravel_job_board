@@ -32,14 +32,14 @@
           {{form.errors.post_code}}
         </div>
       </div>
-      <div class="col-span-6">
-        <label class="label">city</label>
+      <div class="col-span-2">
+        <label class="label">City</label>
         <input v-model="form.city" type="text" class="input" />
         <div v-if="form.errors.city">
           {{form.errors.city}}
         </div>
       </div>
-        <div col-span-6>
+      <div class = "col-span-6">
         <label class="label">Details</label>
         <input v-model="form.detail" type="text" class="input"/>
         <div v-if="form.errors.detail">
@@ -47,7 +47,7 @@
         </div>
       </div>
       <div class="col-span-6">
-        <label class="label">skills</label>
+        <label class="label">Skills</label>
         <input v-model="form.skills" type="text" class="input"/>
         <div v-if="form.errors.skills">
           {{form.errors.skills}}
@@ -55,7 +55,7 @@
       </div>
 
       <div class="col-span-4">
-        <label class="label">salary</label>
+        <label class="label">Salary</label>
         <input v-model.number="form.salary" type="number" class="input"/>
            <div v-if="form.errors.salary">
           {{form.errors.salary}}
@@ -73,20 +73,20 @@
 import { useForm } from '@inertiajs/vue3'
 
 const props = defineProps({
-  job:Object  
+  job: Object  
 })
 const form = useForm({
   job_name: props.job.job_name,
   company: props.job.company,
   area: props.job.area,
-  post_code:props.job.post_code,
-  city:props.job.city,
-  detail:props.job.detail,
-  skills:props.job.skills,
-  salary:props.job.salary,
-  user_id:0,
+  post_code: props.job.post_code,
+  city: props.job.city,
+  detail: props.job.detail,
+  skills: props.job.skills,
+  salary: props.job.salary,
+  user_id: 0,
 })
-const update = () => form.put(route('job.update',{job:props.job.id}))
+const update = () => form.put(route('job.update', { job: props.job.id }))
 </script>
 
 <style scoped>

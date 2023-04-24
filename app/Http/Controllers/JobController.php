@@ -43,7 +43,7 @@ class JobController extends Controller
         return inertia('Jobs/Index',
         [   
             'filters' => $filters,
-            'job'=>$query->paginate(12)
+            'job'=>$query->paginate(60)
             ->withQueryString()
         ]);
     }

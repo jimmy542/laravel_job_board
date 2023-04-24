@@ -18,16 +18,28 @@ class JobModelFactory extends Factory
     public function definition(): array
     {
         $faker = Faker::create('en_GB');
+        $startLatitude = 40.7128; // starting latitude
+        $startLongitude = -74.0060; // starting longitude
+        $distanceMinKm = 10; // minimum distance in kilometers
+        $distanceMaxKm = 30; // maximum distance in kilometers
+
+        // Generate random latitude and longitude within the specified distance range
+        $distanceKm = $faker->numberBetween($distanceMinKm, $distanceMaxKm);
+        $angle = $faker->randomFloat(2, 0, 2 * M_PI);
+        $latitude = $startLatitude + ($distanceKm / 6371) * (180 / M_PI) * sin($angle);
+        $longitude = $startLongitude + ($distanceKm / 6371) * (180 / M_PI) * cos($angle);
         return [
             
         'job_name'=>fake()->jobTitle(),
         'company'=>$faker->company(),
-        'area'=>$faker->boolean(50) ? $faker->buildingNumber() . ' ' . $faker->streetName() : null,
+        'area'=>$faker->buildingNumber() . ' ' . $faker->streetName(),
         'post_code'=>$faker->postcode(),
         'city'=>$faker->city(),
         'detail'=>$faker->sentence(),
         'skills'=>fake()->paragraph(),
-        'salary'=>fake()->numberBetween(10000,60000),
+        'salary'=>fake()->numberBetween(10000,70000),
+        'lat'=>$latitude,
+        'long'=>$longitude,
         'user_id'=>fake()->numberBetween(1,2000),
         ];
     }

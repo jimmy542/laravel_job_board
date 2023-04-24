@@ -1,6 +1,6 @@
 <template>
-<Filters :filters="filters" />
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+<Filters :filters="filters" class="w-full flex justify-center"/>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 rounded-md">
   <Box v-for="item in job.data" :key="item.id">
     <div>
     <Link :href="route('job.show',{job:item.id})">
@@ -26,6 +26,9 @@
 </div>
   <div v-if="job.data.length" class="w-full flex justify-center mt-8 mb-8">
     <Pagination :links="job.links" />
+  </div>
+  <div v-if="!loading && isSmallScreen" class="w-full flex justify-center mt-8 mb-8">
+      <Pagination :links="job.links" />
   </div>
     
 </template>

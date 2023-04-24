@@ -10,7 +10,7 @@ class JobModel extends Model
 {
     use HasFactory;
     protected $fillable=[
-        'job_name','company','area','post_code','city','detail','skills','salary','user_id'
+        'job_name','company','area','post_code','city','detail','skills','salary','user_id','lat','long'
     ];
 
     public function owner(): BelongsTo

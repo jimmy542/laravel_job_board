@@ -20,6 +20,8 @@ return new class extends Migration
             $table->string('city')->nullable();
             $table->longText('detail');
             $table->integer('salary');
+            $table->string('lat')->nullable();
+            $table->string('long')->nullable();
             $table->integer('user_id');
             $table->timestamps();
         });
