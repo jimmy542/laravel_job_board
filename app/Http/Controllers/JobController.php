@@ -29,7 +29,7 @@ class JobController extends Controller
         }
 
         if ($filters['job_name'] ?? false) {
-            $query->where('job_name', '=', $filters['job_name']);
+            $query->where('job_name', 'LIKE', '%' . $filters['job_name'] . '%');
         }
 
         if ($filters['area'] ?? false) {

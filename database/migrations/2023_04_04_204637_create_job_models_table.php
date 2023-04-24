@@ -15,9 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('job_name');
             $table->longText('company');
-            $table->longText('area');
-            $table->string('post_code');
-            $table->string('city');
+            $table->longText('area')->nullable();
+            $table->string('post_code')->nullable();
+            $table->string('city')->nullable();
             $table->longText('detail');
             $table->integer('salary');
             $table->integer('user_id');

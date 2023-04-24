@@ -1,8 +1,10 @@
 <template>
   <div>
-    <span>
-        {{ job.job_name }} | {{job.area }}
-    </span>
+    <div>
+      <span  class="font-light">
+        {{ job.detail }}
+      </span>
+    </div>
   </div>
 </template>
 
