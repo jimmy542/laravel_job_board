@@ -7,7 +7,6 @@
       :class="{'bg-indigo-500 dark:bg-indigo-800 text-gray-300': link.active}"
       v-html="link.label"
       />
-    <div class="py-2 px-4 rounded-md bg-gray-200 animate-pulse" v-if="loading"></div> <!-- Add skeleton loading state with the animate-pulse class -->
   </div>
 </template>
 

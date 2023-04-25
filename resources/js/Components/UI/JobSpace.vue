@@ -11,6 +11,12 @@
     <div>
         <span class="font-light">{{job.city}}</span>
     </div>
+    <div>
+        <span class="font-light"> Lat : {{job.lat}}</span>
+    </div>
+    <div>
+        <span class="font-light"> Long : {{job.long}}</span>
+    </div>
 </template>
 
 <script setup>

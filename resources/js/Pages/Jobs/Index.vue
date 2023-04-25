@@ -9,13 +9,13 @@
        <Salary :salary="item.salary" class="text-2xl font-bold"/>
     </Link>
     </div>
-    <div>
+    <div v-if="$page.props.user">
       <Link :href="route('job.edit',{job:item.id})">
-      Edit
-    </Link> 
+        Edit
+      </Link> 
     </div>
 
-    <div>
+    <div v-if="$page.props.user">
       <Link :href="route('job.destroy',{job:item.id})" method="DELETE" as="button">
       Delete
     </Link> 
@@ -34,13 +34,15 @@
 </template>
 
 <script setup>
-    import { Link } from '@inertiajs/vue3'
+    import { Link ,usePage} from '@inertiajs/vue3'
     import Box from '../../Components/UI/Box.vue'
     import JobListing from '../../Components/UI/JobListing.vue'
     import JobSpace from '../../Components/UI/JobSpace.vue'
     import Salary from '../../Components/UI/Salary.vue'
     import Pagination from '../../Components/UI/Pagination.vue'
     import Filters from './Fliter.vue'
+    const page = usePage()
+    
     defineProps({
         job:Object,
         filters: Object,
