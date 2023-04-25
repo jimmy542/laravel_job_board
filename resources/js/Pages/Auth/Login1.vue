@@ -18,6 +18,12 @@
           <Link :href="route('user.create')" class="text-sm text-gray-500">
             Need an account? Click here
           </Link>
+          <div>
+            email : test@example.com
+          </div>
+          <div>
+            password : password
+          </div>
         </div>
     </div>
   </form>
