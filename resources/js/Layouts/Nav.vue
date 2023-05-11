@@ -19,7 +19,7 @@
             <nav :class="isOpen ? 'block' : 'hidden'" class="px-2 pb-4 sm:flex sm:p-0">
                 <Link class="mt-1 block px-2 py-1 text-xm text-indigo-600 dark:text-indigo-300  text-center font-bold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none sm:mt-0 sm:ml-2" :href="route('about')">About</Link>
                 <Link class="mt-1 block px-2 py-1 text-xm text-indigo-600 dark:text-indigo-300 text-center font-bold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none sm:mt-0 sm:ml-2" :href="route('job.create')">Post Job</Link>
-                <Link class="mt-1 block px-2 py-1 text-xm text-indigo-600 dark:text-indigo-300 text-center font-bold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none sm:mt-0 sm:ml-2" href="/contact">Training</Link>
+                <Link class="mt-1 block px-2 py-1 text-xm text-indigo-600 dark:text-indigo-300 text-center font-bold hover:bg-gray-100 focus:bg-gray-100 focus:outline-none sm:mt-0 sm:ml-2" :href="route('ourteam')">Our Team</Link>
                 
                 <div v-if="$page.props.user" class="flex items-center gap-4">
                     <div class="text-sm text-gray-500">{{ $page.props.user.name }}</div>

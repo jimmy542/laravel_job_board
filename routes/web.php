@@ -21,6 +21,7 @@ use Inertia\Inertia;
 
 Route::get('/', [JobController::class, 'index'])->name('home');
 Route::get('/job/about', [JobController::class, 'about'])->name('about');
+Route::get('/job/ourteam', [JobController::class, 'ourteam'])->name('ourteam');
 
 Route::resource('/job', JobController::class)
   ->only(['create', 'store', 'edit', 'update', 'destroy'])

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <span class="inline-block py-1 px-2 text-xs font-bold rounded-md bg-indigo-500 text-white">
-        Badge
-    </span>
+  <span :class="calculateDistance(job.lat, job.long) < 10 ? 'inline-block py-1 px-2 text-xs font-bold rounded-md bg-green-500 text-white' : 'inline-block py-1 px-2 text-xs font-bold rounded-md bg-indigo-500 text-white'">
+    Distance: {{ calculateDistance(job.lat, job.long) }} km
+  </span>
 
     <div>
       <span class="font-bold text-sm">{{job.job_name}}</span>
@@ -15,9 +15,6 @@
     </div>
     <div>
       <span class="font-bold text-sm">{{job.city}}</span>
-    </div>
-    <div>
-      <span class="font-bold text-sm"> Distance : {{calculateDistance(job.lat, job.long)}} km</span>
     </div>
   </div>
 </template>

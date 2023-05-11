@@ -6,7 +6,7 @@
             <div class="text-1xl  font-bold text-white">Unlock your potential with our dynamic job board!</div>
             <div class="text-1xl  font-bold text-white">Discover your dream job and embark on a journey of professional growth.</div>
             <div class="flex items-center gap-4 p-4 text-1xl font-bold text-white justify-center sm:justify-start">
-            <Link :href="route('job.create')" class="btn-primary">Join us</Link>
+            <Link :href="route('user.create')" class="btn-primary">Join us</Link>
           </div>
         </div>
      

@@ -12,7 +12,7 @@ class JobController extends Controller
     public function __construct()
     {
         // $this->authorizeResource(JobModel::class, 'job');
-        $this->middleware('auth')->except(['index', 'show','about']);
+        $this->middleware('auth')->except(['index', 'show','about','ourteam']);
     }
     /**
      * Display a listing of the resource.
@@ -61,6 +61,13 @@ class JobController extends Controller
 
     public function about(){
         return inertia('Jobs/About',
+        [
+            
+        ]);
+    }
+
+    public function ourteam(){
+        return inertia('Jobs/OurTeam',
         [
             
         ]);
