@@ -18,7 +18,9 @@ use Inertia\Inertia;
 |
 */
 
-Route::redirect('/', '/job');
+
+Route::get('/', [JobController::class, 'index'])->name('home');
+Route::get('/job/about', [JobController::class, 'about'])->name('about');
 
 Route::resource('/job', JobController::class)
   ->only(['create', 'store', 'edit', 'update', 'destroy'])
@@ -31,6 +33,9 @@ Route::resource('user', UserAccountController::class)
 
 Route::get('login', [AuthController::class, 'create'])
   ->name('login');
+
+
+
 Route::post('login', [AuthController::class, 'store'])
   ->name('login.store');
 Route::delete('logout', [AuthController::class, 'destroy'])

@@ -27,14 +27,9 @@
           <option v-for="n in 5" :key="n" :value="n * 10000">{{ n * 10000 }}</option>
           <option :value="60000">60000</option>
         </select>
-        <!-- <select v-model="filterForm.salary" class="input-filter-r w-40 rounded-md">
-          <option :value="null">Distance</option>
-          <option v-for="n in 5" :key="n" :value="n * 5">{{ n * 5 }}</option>
-          <option :value="30">30+</option>
-        </select> -->
       </div>
       <div class="flex flex-nowrap items-center gap-4">
-        <button type="submit" class="btn-normal">Filter</button>
+        <button type="submit" class="btn-primary">Filter</button>
       </div>
       <div class="flex flex-nowrap items-center gap-4">
         <button type="reset" @click="clear">Clear</button>

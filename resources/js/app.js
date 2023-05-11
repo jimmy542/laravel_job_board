@@ -7,7 +7,7 @@ import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers'
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m'
 import MainLayout from '../js/Layouts/MainLayout.vue'
 
-const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel';
+const appName = "Job Board"
 
 createInertiaApp({
   progress: {
@@ -24,7 +24,7 @@ createInertiaApp({
     // Whether the NProgress spinner will be shown.
     showSpinner: false,
   },
-    title: (title) => `${title} - ${appName}`,
+    title: (title) => `${appName}`,
     resolve: async (name) => {
         const pages = import.meta.glob('./Pages/**/*.vue')
         const page = await pages[`./Pages/${name}.vue`]()

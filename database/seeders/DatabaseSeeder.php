@@ -25,11 +25,11 @@ class DatabaseSeeder extends Seeder
             'email' => 'test2@example.com',
         ]);
 
-        \App\Models\JobModel::factory(500)->create([
+        \App\Models\JobModel::factory(30)->create([
             'by_user_id'=>1
         ]);
 
-        \App\Models\JobModel::factory(500)->create([
+        \App\Models\JobModel::factory(30)->create([
             'by_user_id'=>2
         ]);
         

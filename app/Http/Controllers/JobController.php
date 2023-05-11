@@ -12,7 +12,7 @@ class JobController extends Controller
     public function __construct()
     {
         // $this->authorizeResource(JobModel::class, 'job');
-        $this->middleware('auth')->except(['index', 'show']);
+        $this->middleware('auth')->except(['index', 'show','about']);
     }
     /**
      * Display a listing of the resource.
@@ -43,7 +43,7 @@ class JobController extends Controller
         return inertia('Jobs/Index',
         [   
             'filters' => $filters,
-            'job'=>$query->paginate(60)
+            'job'=>$query->paginate(9)
             ->withQueryString()
         ]);
     }
@@ -54,6 +54,13 @@ class JobController extends Controller
     public function create()
     {
         return inertia('Jobs/Create',
+        [
+            
+        ]);
+    }
+
+    public function about(){
+        return inertia('Jobs/About',
         [
             
         ]);

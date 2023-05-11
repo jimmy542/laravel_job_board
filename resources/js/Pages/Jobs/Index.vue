@@ -1,4 +1,5 @@
 <template>
+<Video/>
 <Filters :filters="filters" class="w-full flex justify-center"/>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 rounded-md">
   <Box v-for="item in job.data" :key="item.id">
@@ -41,6 +42,7 @@
     import Salary from '../../Components/UI/Salary.vue'
     import Pagination from '../../Components/UI/Pagination.vue'
     import Filters from './Fliter.vue'
+    import Video from './Video.vue'
     const page = usePage()
     
     defineProps({

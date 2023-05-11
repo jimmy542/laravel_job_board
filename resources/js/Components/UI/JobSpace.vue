@@ -1,19 +1,23 @@
 <template>
   <div>
+    <span class="inline-block py-1 px-2 text-xs font-bold rounded-md bg-indigo-500 text-white">
+        Badge
+    </span>
+
     <div>
-      <span class="font-bold">{{job.job_name}}</span>
+      <span class="font-bold text-sm">{{job.job_name}}</span>
     </div>
     <div>
-      <span class="font-light">{{job.company}}</span>
+      <span class="font-light text-sm">{{job.company}}</span>
     </div>
     <div>
-      <span class="font-light">{{job.area}}</span>
+      <span class="font-bold text-sm">{{job.area}}</span>
     </div>
     <div>
-      <span class="font-light">{{job.city}}</span>
+      <span class="font-bold text-sm">{{job.city}}</span>
     </div>
     <div>
-      <span class="font-light"> Distance : {{calculateDistance(job.lat, job.long)}} km</span>
+      <span class="font-bold text-sm"> Distance : {{calculateDistance(job.lat, job.long)}} km</span>
     </div>
   </div>
 </template>
