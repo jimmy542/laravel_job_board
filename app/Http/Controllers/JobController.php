@@ -25,7 +25,7 @@ class JobController extends Controller
         ]);
 
         if ($filters['salary'] ?? false) {
-            $query->where('salary', '>=', $filters['salary']);
+            $query->where('salary', '>', $filters['salary']);
         }
 
         if ($filters['job_name'] ?? false) {
