@@ -1,5 +1,5 @@
 <template>
-  <span class="text-sm">{{ formattedSalary }}</span>
+  <span class="text-sm bg-green-300">{{ formattedSalary }}</span>
 </template>
 
 <script setup>

@@ -8,6 +8,7 @@ module.exports = {
         './storage/framework/views/*.php',
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
+        "./node_modules/tw-elements/dist/js/**/*.js",
     ],
 
     theme: {
@@ -17,6 +18,6 @@ module.exports = {
             },
         },
     },
-
-    plugins: [require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    darkMode: "class",
+    plugins: [require("tw-elements/dist/plugin.cjs"),require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

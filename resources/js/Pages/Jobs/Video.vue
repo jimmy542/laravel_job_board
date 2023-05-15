@@ -1,5 +1,5 @@
 <template>
-  <header class="relative flex items-center justify-center h-60 mb-12 overflow-hidden">
+  <header class="relative flex items-center justify-center h-80 mb-12 overflow-hidden">
     <div class="relative z-30 justify-center">
         <div class="flex flex-col text-center sm:text-left">
             <div class="shadow-xl text-3xl  font-bold text-white"> Welcome to Job Board </div>

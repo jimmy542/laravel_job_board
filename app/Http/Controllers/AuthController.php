@@ -26,7 +26,7 @@ class AuthController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended('/job');
+        return redirect()->intended('/dashboard');
     }
 
     public function destroy(Request $request)

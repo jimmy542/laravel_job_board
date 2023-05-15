@@ -33,8 +33,8 @@
 import { useForm,Link } from '@inertiajs/vue3'
 
 const form = useForm({
-  email: null,
-  password: null,
+  email: "test@example.com",
+  password: "password",
 })
 const login = () => form.post(route('login.store'))
 </script>

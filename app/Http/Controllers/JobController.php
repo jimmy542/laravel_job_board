@@ -18,32 +18,27 @@ class JobController extends Controller
      * Display a listing of the resource.
      */
     public function index(Request $request)
-    {
-        $query = JobModel::orderByDesc('created_at');
+    {   
+
+
+        
+        
         $filters = $request->only([
             'salary', 'job_name','area','post_code','city','skills',
         ]);
-
-        if ($filters['salary'] ?? false) {
-            $query->where('salary', '>', $filters['salary']);
-        }
-
-        if ($filters['job_name'] ?? false) {
-            $query->where('job_name', 'LIKE', '%' . $filters['job_name'] . '%');
-        }
-
-        if ($filters['area'] ?? false) {
-            $query->where('area', $filters['area']);
-        }
-
-        if ($filters['post_code'] ?? false) {
-            $query->where('post_code', $filters['post_code']);
-        }
+        
 
         return inertia('Jobs/Index',
         [   
             'filters' => $filters,
-            'job'=>$query->paginate(9)
+            'job'=>JobModel::orderByDesc('created_at')
+            ->when(
+                $filters['salary'] ?? false,
+                fn ($query, $value) => $query->where('salary', '<=', $value))
+            ->when(
+                $filters['job_name'] ?? false,
+                fn ($query, $value) => $query->where('job_name','LIKE', '%' .$value. '%'))
+            ->paginate(9)
             ->withQueryString()
         ]);
     }
