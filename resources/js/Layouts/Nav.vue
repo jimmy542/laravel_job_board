@@ -1,6 +1,6 @@
 <template>
-    <header class="bg-white shadow">
-        <div class="w-full max-w-6xl mx-auto sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3">
+    <header class="shadow bg-zinc-100">
+        <div class="w-full max-w-6xl mx-auto sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 ">
             <div class="flex justify-between items-center px-4 py-3 sm:p-0">
                 <div>
                     <Link class="navbar-brand text-xl text-indigo-600 dark:text-indigo-300 font-bold text-center" :href="route('job.index')">Job Board</Link>
