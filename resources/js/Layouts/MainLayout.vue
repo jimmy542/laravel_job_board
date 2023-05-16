@@ -1,5 +1,5 @@
 <template>
-    <div class="font-mono container">
+    <div class="font-mono mx-auto">
         <Navbar/>
         <main>
             <div class="w-full max-w-6xl mx-auto">
