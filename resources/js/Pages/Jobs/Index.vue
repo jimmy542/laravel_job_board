@@ -1,7 +1,7 @@
 <template>
 <Video/>
-<Filters :filters="filters" class="w-full flex justify-center "/>
-<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 rounded-xl text-center sm:text-left ">
+<Filters :filters="filters" class="w-full flex justify-center mx-auto"/>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 rounded-xl sm:text-left ">
   <Box v-for="item in job.data" :key="item.id" class="bg-zinc-100">
     <div>
     <Link :href="route('job.show',{job:item.id})">

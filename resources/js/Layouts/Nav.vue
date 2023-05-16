@@ -1,5 +1,5 @@
 <template>
-    <header class="shadow bg-zinc-100">
+    <header class="shadow bg-zinc-100 mx-auto">
         <div class="w-full max-w-6xl mx-auto sm:flex sm:justify-between sm:items-center sm:px-4 sm:py-3 ">
             <div class="flex justify-between items-center px-4 py-3 sm:p-0">
                 <div>
