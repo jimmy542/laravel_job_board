@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="filter">
-    <div class="mb-4  sm:grid-cols-2 p-4 flex flex-wrap gap-4 justify-center">
+    <div class="mb-4  sm:grid-cols-2 p-4 flex flex-wrap gap-4 justify-center mx-auto">
       <div class="flex flex-nowrap items-center gap-4">
         <div>
           <input
