@@ -2,7 +2,6 @@
   <div>
     <div>
       <span  class="font-light">
-        {{ job.detail }}
       </span>
     </div>
   </div>

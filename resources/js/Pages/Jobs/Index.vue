@@ -4,11 +4,14 @@
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-3 rounded-xl sm:text-left ">
   <Box v-for="item in job.data" :key="item.id" class="bg-zinc-100">
     <div>
-    <Link :href="route('job.show',{job:item.id})">
-       <JobSpace :job="item" class="text-gray-500" />
-       <JobListing :job="item" class="text-gray-500" />
+    <Link :href="route('job.show',{job:item.id})">{{item.job_name}}</Link>
+    </div>
+    <div>
+      <p>
+    <JobSpace :job="item" class="text-gray-900" />
+       <JobListing :job="item" class="text-gray-700" />
        <Salary :salary="item.salary" class="text-2xl font-bold"/>
-    </Link>
+      </p>
     </div>
     <div v-if="$page.props.user">
       <Link :href="route('job.edit',{job:item.id})">

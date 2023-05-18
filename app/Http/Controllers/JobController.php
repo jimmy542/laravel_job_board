@@ -33,11 +33,17 @@ class JobController extends Controller
             'filters' => $filters,
             'job'=>JobModel::orderByDesc('created_at')
             ->when(
-                $filters['salary'] ?? false,
+                $filters['salaryFrom'] ?? false,
+                fn ($query, $value) => $query->where('salary', '>=', $value))
+            ->when(
+                $filters['salaryTo'] ?? false,
                 fn ($query, $value) => $query->where('salary', '<=', $value))
             ->when(
                 $filters['job_name'] ?? false,
                 fn ($query, $value) => $query->where('job_name','LIKE', '%' .$value. '%'))
+            ->when(
+                $filters['city'] ?? false,
+                fn ($query, $value) => $query->where('city','LIKE', '%' .$value. '%'))
             ->paginate(9)
             ->withQueryString()
         ]);
