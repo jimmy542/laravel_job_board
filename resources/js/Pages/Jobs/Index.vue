@@ -13,16 +13,17 @@
        <Salary :salary="item.salary" class="text-2xl font-bold"/>
       </p>
     </div>
-    <div v-if="$page.props.user">
-      <Link :href="route('job.edit',{job:item.id})">
+    <div v-if="$page.props.user" >
+      <Link :href="route('job.edit',{job:item.id})" class="inline-block py-1 px-2 text-xs font-bold rounded-md bg-indigo-900 text-white">
         Edit
       </Link> 
+      <Link :href="route('job.destroy',{job:item.id})" class="inline-block py-1 px-2 text-xs font-bold rounded-md bg-rose-500 text-white" method="DELETE" as="button">
+      Delete
+    </Link> 
     </div>
 
     <div v-if="$page.props.user">
-      <Link :href="route('job.destroy',{job:item.id})" method="DELETE" as="button">
-      Delete
-    </Link> 
+      
     </div>
     
   </Box>

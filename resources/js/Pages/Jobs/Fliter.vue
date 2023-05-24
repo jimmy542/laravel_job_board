@@ -17,7 +17,7 @@
             </select>
           </div>
           <div class="flex flex-wrap gap-4">
-            <select @change="filter()" v-model="filterForm.salaryTo" class="input-filter-r w-40 rounded-full">
+            <select @change="filter()" v-model="filterForm.salaryTo" class="input input-filter-r w-40 rounded-full">
               <option :value="null">Salary To</option>
               <option v-for="n in 5" :key="n" :value="n * 10000">{{ n * 10000 }}</option>
               <option :value="60000">60000</option>

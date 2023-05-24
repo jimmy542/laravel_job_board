@@ -1,9 +1,9 @@
 <template>
 <!-- ========== HEADER ========== -->
-  <header class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white border-b border-gray-200 text-sm py-3 sm:py-0">
+  <header class="sticky top-0 inset-x-0 flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-gray-100 border-b border-gray-200 text-sm py-3 sm:py-0">
     <nav class="relative max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between sm:px-6 lg:px-8" aria-label="Global">
       <div class="flex items-center justify-between">
-        <Link class="flex-none text-xl font-semibold dark:text-white text-indigo-700" :href="route('home')" aria-label="JobBoard">JobBoard</Link>
+        <Link class="flex-none text-xl font-semibold dark:text-white text-indigo-900" :href="route('home')" aria-label="JobBoard">JobBoard</Link>
         <div class="sm:hidden">
           <button type="button" class="hs-collapse-toggle p-2 inline-flex justify-center items-center gap-2 rounded-md border font-medium bg-white text-gray-700 shadow-sm align-middle hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-white focus:ring-blue-600 transition-all text-sm dark:bg-slate-900 dark:hover:bg-slate-800 dark:border-gray-700 dark:text-gray-400 dark:hover:text-white dark:focus:ring-offset-gray-800" data-hs-collapse="#navbar-collapse-with-animation" aria-controls="navbar-collapse-with-animation" aria-label="Toggle navigation">
             <svg class="hs-collapse-open:hidden w-4 h-4" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
@@ -17,17 +17,23 @@
       </div>
       <div id="navbar-collapse-with-animation" class="hs-collapse hidden overflow-hidden transition-all duration-300 basis-full grow sm:block">
         <div class="flex flex-col gap-y-4 gap-x-0 mt-5 sm:flex-row sm:items-center sm:justify-end sm:gap-y-0 sm:gap-x-7 sm:mt-0 sm:pl-7">
-          <Link class="text-lg font-semibold text-indigo-700 sm:py-4  dark:text-white" :href="route('about')" aria-current="page">About</Link>
-          <Link class="text-lg font-semibold text-indigo-700 sm:py-4  dark:text-white" :href="route('job.create')" aria-current="page">Post Job</Link>
-          <Link class="text-lg font-semibold text-indigo-700 sm:py-4  dark:text-white" :href="route('ourteam')" aria-current="page">Our Team</Link>
+          <Link class="text-lg font-semibold text-indigo-900 sm:py-4  dark:text-white" :href="route('about')" aria-current="page">About</Link>
+          <Link class="text-lg font-semibold text-indigo-900 sm:py-4  dark:text-white" :href="route('job.create')" aria-current="page">Post Job</Link>
+          <Link class="text-lg font-semibold text-indigo-900 sm:py-4  dark:text-white" :href="route('ourteam')" aria-current="page">Our Team</Link>
 
           <Link class="flex items-center gap-x-2 font-medium text-gray-500 hover:text-blue-600 sm:border-l sm:border-gray-300 sm:my-6 sm:pl-6 dark:border-gray-700 dark:text-gray-400 dark:hover:text-blue-500" :href="route('login')">
             <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
               <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
             </svg>
-            <div class="text-lg font-semibold text-indigo-700 sm:py-4  dark:text-white">
-            Log in
-            </div>
+            <div v-if="$page.props.user" class="flex items-center gap-4">
+                    <div class="text-sm text-gray-500">{{ $page.props.user.name }}</div>
+                <div>
+                    <Link :href="route('logout')" method="delete" as="button">Logout</Link>
+                </div>
+                </div>
+                <div v-else>
+                    <Link class="text-lg font-semibold text-indigo-900 sm:py-4  dark:text-white" :href="route('login')">Login</Link>
+                </div>
           </Link>
         </div>
       </div>
