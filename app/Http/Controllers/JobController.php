@@ -24,29 +24,22 @@ class JobController extends Controller
         
         
         $filters = $request->only([
-            'salary', 'job_name','area','post_code','city','skills',
+            'job_name','area','city','salaryFrom','salaryTo',
         ]);
         
-
-        return inertia('Jobs/Index',
-        [   
-            'filters' => $filters,
-            'job'=>JobModel::orderByDesc('created_at')
-            ->when(
-                $filters['salaryFrom'] ?? false,
-                fn ($query, $value) => $query->where('salary', '>=', $value))
-            ->when(
-                $filters['salaryTo'] ?? false,
-                fn ($query, $value) => $query->where('salary', '<=', $value))
-            ->when(
-                $filters['job_name'] ?? false,
-                fn ($query, $value) => $query->where('job_name','LIKE', '%' .$value. '%'))
-            ->when(
-                $filters['city'] ?? false,
-                fn ($query, $value) => $query->where('city','LIKE', '%' .$value. '%'))
-            ->paginate(9)
-            ->withQueryString()
+    
+       return inertia('Jobs/Index', [
+        'filters' => $filters,
+        'job' => JobModel::orderByDesc('created_at')
+        
+        ->when($filters['salaryFrom'] ?? false, fn($query, $value) => $query->where('salary', '>=', $value))
+        ->when($filters['salaryTo'] ?? false, fn($query, $value) => $query->where('salary', '<=', $value))
+        ->when($filters['job_name'] ?? false, fn($query, $value) => $query->where('job_name', 'LIKE', '%' . $value . '%'))
+        ->when($filters['city'] ?? false, fn($query, $value) => $query->where('city', 'LIKE', '%' . $value . '%'))
+        ->paginate(9)
+        ->withQueryString(),
         ]);
+        dd($filters);
     }
 
     /**

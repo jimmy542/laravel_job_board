@@ -18,22 +18,19 @@
           class="input-filter-r w-28 rounded-md"
         />
         </div>
-        
-         <div>
-
-          <input
-          v-model.trim="filterForm.salaryFrom"
-          type="text" placeholder="Salary From" 
-          class="input-filter-r w-28 rounded-md"
-        />
+         <div class="flex flex-nowrap items-center gap-4">
+        <select @change="filter()" v-model="filterForm.salaryFrom" class="input-filter-r w-40 rounded-md">
+          <option :value="null">Salary From</option>
+          <option v-for="n in 5" :key="n" :value="n * 10000">{{ n * 10000 }}</option>
+          <option :value="60000">60000</option>
+        </select>
         </div>
-         <div>
-
-          <input
-          v-model.trim="filterForm.salaryTo"
-          type="text" placeholder="Salary To" 
-          class="input-filter-r w-28 rounded-md"
-        />
+         <div class="flex flex-nowrap items-center gap-4">
+        <select @change="filter()" v-model="filterForm.salaryTo" class="input-filter-r w-40 rounded-md">
+          <option :value="null">Salary To</option>
+          <option v-for="n in 5" :key="n" :value="n * 10000">{{ n * 10000 }}</option>
+          <option :value="60000">60000</option>
+        </select>
         </div>
       </div>
 
