@@ -9,6 +9,7 @@ module.exports = {
         './resources/views/**/*.blade.php',
         './resources/js/**/*.vue',
         "./node_modules/tw-elements/dist/js/**/*.js",
+        './node_modules/preline/dist/*.js',
     ],
 
     theme: {
@@ -19,5 +20,5 @@ module.exports = {
         },
     },
     darkMode: "class",
-    plugins: [require("tw-elements/dist/plugin.cjs"),require('@tailwindcss/forms'), require('@tailwindcss/typography')],
+    plugins: [require('preline/plugin'),require('@tailwindcss/forms'), require('@tailwindcss/typography')],
 };

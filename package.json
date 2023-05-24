@@ -24,6 +24,7 @@
         "@heroicons/vue": "^2.0.18",
         "@inertiajs/vue3": "^1.0.2",
         "nprogress": "^0.2.0",
+        "preline": "^1.8.0",
         "tw-elements": "^1.0.0-beta2"
     }
 }

@@ -1,6 +1,6 @@
 <template>
     <div class="font-mono mx-auto">
-        <Navbar/>
+        <Nav1Vue/>
         <main>
             <div class="w-full max-w-6xl mx-auto">
                 <article>
@@ -8,7 +8,6 @@
                 </article>
             </div>
         </main>
-        <Nav1vue/>
         <Footer/>
     </div>
 </template>
