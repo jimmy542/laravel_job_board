@@ -29,7 +29,7 @@
         </div>
         <div class="flex flex-wrap justify-center gap-4 w-full">
           <button type="submit" class="btn-primary w-40">Filter</button>
-          <button type="reset" @click="clear" class="w-40 ">Clear</button>
+          <button type="reset" @click="clear" class="btn-default w-40 ">Clear</button>
         </div>
       </div>
     </div>

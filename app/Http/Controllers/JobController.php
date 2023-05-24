@@ -36,7 +36,7 @@ class JobController extends Controller
         ->when($filters['salaryTo'] ?? false, fn($query, $value) => $query->where('salary', '<=', $value))
         ->when($filters['job_name'] ?? false, fn($query, $value) => $query->where('job_name', 'LIKE', '%' . $value . '%'))
         ->when($filters['city'] ?? false, fn($query, $value) => $query->where('city', 'LIKE', '%' . $value . '%'))
-        ->paginate(9)
+        ->paginate(18)
         ->withQueryString(),
         ]);
         dd($filters);

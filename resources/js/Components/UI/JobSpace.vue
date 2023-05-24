@@ -18,8 +18,8 @@
 
 <script setup>
   // Define the starting latitude and longitude
-  const startLatitude = 40.7128;
-  const startLongitude = -74.0060;
+  const startLatitude = 53.4308;
+  const startLongitude = -1.3569;
 
   // Function to calculate the distance between two points using Haversine formula
   const calculateDistance = (latitude, longitude) => {

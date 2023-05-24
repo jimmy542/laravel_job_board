@@ -16,9 +16,21 @@ class JobModelFactory extends Factory
     {
         $faker = Faker::create('en_GB');
 
+        // Define the cities with their corresponding latitude and longitude
+        $cities = [
+            'Leeds' => ['lat' => 53.8008, 'long' => -1.5491],
+            'Manchester' => ['lat' => 53.4839, 'long' => -2.2446],
+            'Sheffield' => ['lat' => 53.3811, 'long' => -1.4701],
+            'Wakefield' => ['lat' => 53.6833, 'long' => -1.4977],
+            'York' => ['lat' => 53.9590, 'long' => -1.0815],
+        ];
+
         // Randomly select a city from the list
-        $cities = ['Leeds', 'Manchester', 'Sheffield', 'Wakefield', 'York'];
-        $city = $faker->randomElement($cities);
+        $city = $faker->randomElement(array_keys($cities));
+
+        // Get the latitude and longitude for the selected city
+        $latitude = $cities[$city]['lat'];
+        $longitude = $cities[$city]['long'];
 
         return [
             'job_name' => $faker->jobTitle(),
@@ -29,8 +41,8 @@ class JobModelFactory extends Factory
             'detail' => $faker->sentence(),
             'skills' => $faker->paragraph(),
             'salary' => $faker->numberBetween(10000, 70000),
-            'lat' => $faker->latitude(),
-            'long' => $faker->longitude(),
+            'lat' => $latitude,
+            'long' => $longitude,
             'user_id' => $faker->numberBetween(1, 2000),
         ];
     }
