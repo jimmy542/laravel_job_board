@@ -27,5 +27,12 @@
     .btn-primary {
         @apply bg-indigo-900 hover:bg-indigo-700 text-white font-medium p-2 rounded-md
       }
+    
+      .btn-warning {
+        @apply bg-rose-600 hover:bg-indigo-700 text-white font-medium p-2 rounded-md
+      }
 
+      .btn-default {
+        @apply bg-salate-100 hover:bg-indigo-500 text-white font-medium p-2 rounded-md
+      }
 }

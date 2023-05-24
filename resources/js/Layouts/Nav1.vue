@@ -28,7 +28,7 @@
             <div v-if="$page.props.user" class="flex items-center gap-4">
                     <div class="text-sm text-gray-500">{{ $page.props.user.name }}</div>
                 <div>
-                    <Link :href="route('logout')" method="delete" as="button">Logout</Link>
+                    <Link :href="route('logout')" class="btn-primary" method="delete" as="button">Logout</Link>
                 </div>
                 </div>
                 <div v-else>

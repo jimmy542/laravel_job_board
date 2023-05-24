@@ -1,8 +1,8 @@
 <template>
-  <div class="border border-gray-200 dark:border-gray-800 rounded-md p-2 shadow-sm dark:text-gray-300">
-    <div class="text-gray-500 font-medium mb-1">
+  <div class="border-solid border-2 border-indigo-900 rounded-md p-2 shadow-sm dark:text-salate-900">
+    <div class="text-salate-900 font-medium mb-1">
       <slot name="header" />
     </div>
-    <slot />
+    <slot/>
   </div>
 </template>

@@ -6,9 +6,12 @@
           <div>
             <input v-model.trim="filterForm.job_name" type="text" placeholder="Job Title" class="input-filter-r w-40 rounded-full" />
           </div>
-          <div>
-            <input v-model.trim="filterForm.city" type="text" placeholder="City" class="input-filter-r w-40 rounded-full" />
-          </div>
+          <div class="flex flex-wrap gap-4">
+            <select @change="filter()" v-model="filterForm.city" class="input input-filter-r w-40 rounded-full">
+              <option :value="null">Select City</option>
+              <option v-for="city in cities" :key="city" :value="city">{{ city }}</option>
+            </select>
+        </div>
           <div class="flex flex-wrap gap-4">
             <select @change="filter()" v-model="filterForm.salaryFrom" class="input-filter-r w-40 rounded-full">
               <option :value="null">Salary From</option>
@@ -26,7 +29,7 @@
         </div>
         <div class="flex flex-wrap justify-center gap-4 w-full">
           <button type="submit" class="btn-primary w-40">Filter</button>
-          <button type="reset" @click="clear" class="w-40">Clear</button>
+          <button type="reset" @click="clear" class="w-40 ">Clear</button>
         </div>
       </div>
     </div>
@@ -43,6 +46,7 @@ import {useForm} from '@inertiajs/vue3'
 const props = defineProps({
   filters: Object,
 })
+const cities = ['Leeds', 'Manchester', 'Sheffield', 'Wakefield', 'York'];
 
 const filterForm = useForm({
   salaryFrom: props.filters.salaryFrom ?? null,
