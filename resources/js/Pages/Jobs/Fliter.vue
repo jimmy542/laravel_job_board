@@ -1,49 +1,41 @@
 <template>
   <form @submit.prevent="filter">
-    <div class="mb-2 sm:grid-cols-2 p-6 flex flex-wrap gap-6 justify-center mx-auto">
-      <div class="flex flex-nowrap items-center gap-4">
-        <div>
-          <input
-          v-model.trim="filterForm.job_name"
-          type="text" placeholder="Job Title" 
-          class="input-filter-r w-28 rounded-md"
-        />
+    <div class="p-6 mx-auto">
+      <div class="flex flex-wrap gap-6 justify-center">
+        <div class="flex flex-wrap justify-center gap-4">
+          <div>
+            <input v-model.trim="filterForm.job_name" type="text" placeholder="Job Title" class="input-filter-r w-40 rounded-full" />
+          </div>
+          <div>
+            <input v-model.trim="filterForm.city" type="text" placeholder="City" class="input-filter-r w-40 rounded-full" />
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <select @change="filter()" v-model="filterForm.salaryFrom" class="input-filter-r w-40 rounded-full">
+              <option :value="null">Salary From</option>
+              <option v-for="n in 5" :key="n" :value="n * 10000">{{ n * 10000 }}</option>
+              <option :value="60000">60000</option>
+            </select>
+          </div>
+          <div class="flex flex-wrap gap-4">
+            <select @change="filter()" v-model="filterForm.salaryTo" class="input-filter-r w-40 rounded-full">
+              <option :value="null">Salary To</option>
+              <option v-for="n in 5" :key="n" :value="n * 10000">{{ n * 10000 }}</option>
+              <option :value="60000">60000</option>
+            </select>
+          </div>
         </div>
-
-        <div>
-
-          <input
-          v-model.trim="filterForm.city"
-          type="text" placeholder="City" 
-          class="input-filter-r w-28 rounded-md"
-        />
+        <div class="flex flex-wrap justify-center gap-4 w-full">
+          <button type="submit" class="btn-primary w-40">Filter</button>
+          <button type="reset" @click="clear" class="w-40">Clear</button>
         </div>
-         <div class="flex flex-nowrap items-center gap-4">
-        <select @change="filter()" v-model="filterForm.salaryFrom" class="input-filter-r w-40 rounded-md">
-          <option :value="null">Salary From</option>
-          <option v-for="n in 5" :key="n" :value="n * 10000">{{ n * 10000 }}</option>
-          <option :value="60000">60000</option>
-        </select>
-        </div>
-         <div class="flex flex-nowrap items-center gap-4">
-        <select @change="filter()" v-model="filterForm.salaryTo" class="input-filter-r w-40 rounded-md">
-          <option :value="null">Salary To</option>
-          <option v-for="n in 5" :key="n" :value="n * 10000">{{ n * 10000 }}</option>
-          <option :value="60000">60000</option>
-        </select>
-        </div>
-      </div>
-
-     
-      <div class="flex flex-nowrap items-center gap-4">
-        <button type="submit" class="btn-primary">Filter</button>
-      </div>
-      <div class="flex flex-nowrap items-center gap-4">
-        <button type="reset" @click="clear">Clear</button>
       </div>
     </div>
   </form>
 </template>
+
+
+
+
 
 <script setup>
 import {useForm} from '@inertiajs/vue3'

@@ -14,13 +14,11 @@
 
 <script>
 import Footer from './Footer.vue'
-import Navbar from './Nav.vue'
 import Nav1Vue from './Nav1.vue'
 
 
 export default {
      components: {
-         Navbar,
          Nav1Vue,
          Footer,
      }
